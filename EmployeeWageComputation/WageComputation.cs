@@ -11,18 +11,18 @@ namespace EmployeeWageComputation
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
 
-        private string company;
-        private int empRatePerHour;
-        private int numOfWorkingDays;
-        private int maxHoursPerMonth;
+        private string companyName;
+        private int empWagePerHour;
+        private int workingDays;
+        private int maxHours;
         private int totalEmpWage;
 
-        public void empWageBuilderObject(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+        public WageComputation(string companyName, int empWagePerHour, int workingDays, int maxHours)
         {
-            this.company = company;
-            this.empRatePerHour = empRatePerHour;
-            this.numOfWorkingDays = numOfWorkingDays;
-            this.maxHoursPerMonth = maxHoursPerMonth;
+            this.companyName = companyName;
+            this.empWagePerHour = empWagePerHour;
+            this.workingDays = workingDays;
+            this.maxHours = maxHours;
         }
 
         public void computeEmpWage()
@@ -30,7 +30,7 @@ namespace EmployeeWageComputation
             
             int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
             
-            while (totalEmpHrs <= this.maxHoursPerMonth && totalWorkingDays < this.numOfWorkingDays)
+            while (totalEmpHrs <= this.maxHours && totalWorkingDays < this.workingDays)
             {
                 totalWorkingDays++;
                 Random random = new Random();
@@ -50,15 +50,13 @@ namespace EmployeeWageComputation
                 totalEmpHrs += empHrs;
                 Console.WriteLine("Day:" + totalWorkingDays + " Emp Hours:" + empHrs);
             }
-            totalEmpWage = totalEmpHrs * this.empRatePerHour;
-            Console.WriteLine("Total Emp Wage For Company : " + company + " is " + totalEmpWage);
+            totalEmpWage = totalEmpHrs * this.empWagePerHour;
         }
 
         public string toString()
         {
-            return "Total Emp Wage For Company : " + this.company + " is " + this.totalEmpWage;
+            return "Total Emp Wage For Company : " + this.companyName + " is " + this.totalEmpWage;
         }
-
 
     }
 }
