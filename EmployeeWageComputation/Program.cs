@@ -21,9 +21,10 @@ namespace EmployeeWageComputation
                 int workingDays = Convert.ToInt32(Console.ReadLine());
                 Console.Write("Enter Max Working Hours Per Month : ");
                 int maxHours = Convert.ToInt32(Console.ReadLine());
-                WageComputation company =new WageComputation(companyName, empWagePerHour, workingDays, maxHours);
-                company.computeEmpWage();
-                Console.WriteLine(company.toString());
+
+                WageComputation company = new WageComputation();
+                company.AddCompanyEmpWage(companyName, empWagePerHour, workingDays, maxHours);
+                company.ComputeEmpWage();
                 Console.WriteLine("\n");
                 num--;
             }
